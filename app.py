@@ -84,6 +84,19 @@ app = FastAPI()
 
 
 def make_query_request(host: str, query: str) -> grequests.AsyncRequest:
+    if host == "9c-main-rpc-6.nine-chronicles.com":
+        host += ":23061"
+    elif host == "9c-main-rpc-7.nine-chronicles.com":
+        host += ":23061"
+    elif host == "9c-main-rpc-8.nine-chronicles.com":
+        host += ":23061"
+    elif host == "9c-main-rpc-9.nine-chronicles.com":
+        host += ":23061"
+    elif host == "9c-main-rpc-10.nine-chronicles.com":
+        host += ":23061"
+    elif host == "9c-main-rpc-99.nine-chronicles.com":
+        host += ":23061"
+
     return grequests.post(
         f"http://{host}/graphql",
         json={"query": query},
